@@ -1,0 +1,20 @@
+<!--pages/input/input.wxml-->
+<!-- <text>pages/input/input.wxml</text> -->
+
+<!-- 1.基本使用 -->
+<input/>
+
+<!-- 2.value:input中的默认值  -->
+<input value="bjf"/>
+
+<!-- type：键盘的类型 （文本/数字 /身份证 /带小数点数字）-->
+<input type="number"/>
+
+<!-- password:暗文 -->
+<input password/>
+
+<!-- placeholder -->
+<input placeholder="bjf"/>
+
+<!-- input：绑定事件 -->
+<input bindinput="handleInput" bindfocus="handleFocus" bindblur="handleBlur"/>
