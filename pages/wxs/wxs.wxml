@@ -1,0 +1,36 @@
+<!--pages/wxs/wxs.wxml-->
+<!-- <text>pages/wxs/wxs.wxml</text> -->
+
+<!-- wxs 的定义方式 -->
+<!-- 直接在wxml中定义 -->
+<!-- <wxs module="info">
+  // js代码
+  var message = "hello";
+  var name = "bjf";
+
+  var sum = function(num1, num2) {
+    return num1 + num2
+  }
+
+  // commonjs的模块化导出的写法
+  module.exports = {
+    message: message,
+    name: name,
+    sum: sum
+  }
+</wxs>  -->
+
+
+<!-- 定义在点的的wxs文件中，再使用<wxs>标签进行导入 -->
+<!-- 不能使用绝对路径，必须使用相对路径 -->
+<wxs src="../../wxs/info.wxs" module="info"/>
+
+<view>{{info.message}}</view>
+<view>{{info.name}}</view>
+<view>{{info.sum(20,30)}}</view>
+
+
+<!-- wxs的应用 -->
+<wxs src="../../wxs/format.wxs" module="format"/>
+
+<view>{{format.priceFormat(price, 2)}}</view>

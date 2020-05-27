@@ -1,0 +1,85 @@
+<!--pages/wxss/wxss.wxml-->
+<!-- <text>pages/wxss/wxss.wxml</text> -->
+
+<view class="box1"></view>
+
+<view class="box2"></view>
+
+<view class="content1">哈哈哈</view>
+<view class="content2">哈哈哈</view>
+
+<button class="btn">按钮</button>
+
+<!-- Mustache  -->
+
+
+<view>----------条件判断-----------</view>
+<!-- wx:if 使用 -->
+<button size="mini" bindtap="handleSwitchShow">切换显示</button>
+<view wx:if="{{isShow}}">哈哈哈</view>
+
+<!-- wx:else 使用 -->
+<button size="mini" bindtap="handleIncrement">分数递增 + 6</button>
+<view wx:if="{{score >= 90}}">优秀</view>
+<view wx:elif="{{score >= 80}}">良好</view>
+<view wx:elif="{{score >= 60}}">及格</view>
+<view wx:else>不及格</view>
+
+<!-- hidden属性 -->   
+<view wx:if="{{false}}">view</view>
+<view hidden="{{true}}">view</view>
+
+<view>-----------列表渲染---------------</view>
+<!-- 1.wx:for基础  -->
+<!-- 1.1遍历数组/字符串/数字 -->
+<!-- <view wx:for="{{['abc', 'cba', 'aaa']}}">{{index}} {{item}}</view>
+<view wx:for="bjf">{{index}} {{item}}</view>
+<view wx:for="{{10}}">{{item}}</view> -->
+
+<!-- block标签 -->
+<!-- <block wx:if="{{isShow}}">
+  <button size="mini">按钮</button>
+  <view>啊啊啊</view>
+  <text>哈哈哈</text>
+</block> -->
+ 
+<!-- 显示3次  -->
+<!-- <block wx:if="{{3}}">
+  <button size="mini">按钮</button>
+  <view>啊啊啊</view>
+  <text>哈哈哈</text>
+</block> -->
+
+<!-- 3.item 和 index 起名字 -->
+<!-- <view wx:for="{{movies}}" wx:for-item="movie" wx:for-index="i">{{i}}-{{movie}}</view>
+
+<block wx:for="{{nums}}" wx:for-item="outer_nums">
+  <block wx:for="{{outer_nums}}">
+    <view>{{item}}</view>
+  </block>
+</block> -->
+
+<!-- 4.key的作用 提高性能-->
+<!-- <view wx:for="{{letters}}" wx:key="{{index}}">{{item}}</view> -->
+
+<view>----------template------------</view>
+
+<!-- 模板中包裹的内容，在没有被使用前，是不会进行任何的渲染的 -->
+<!-- <template name="contentItem">
+  <button size="mini">{{btnText}}</button>
+  <view>{{content}}</view>
+</template> -->
+<!-- include是不能导入模板的 -->
+<!-- 关于wxml的导入有两种方式：
+  import导入：
+    1.主要是导入template
+    2.特点：不能进行递归导入
+  include引入：
+    1.将公共的wxml中的组件抽取到一个文件中
+    2.特点：不能导入template/wxs.可以进行递归导入
+   -->
+<import src="/wxml/template.wxml" />
+
+<template is="contentItem" data="{{btnText: '按钮', content:'你好'}}"/>
+<template is="contentItem" data="{{btnText: '点击', content:'好啊'}}"/>
+<template is="contentItem" data="{{btnText: '登录', content:'登录'}}"/>
