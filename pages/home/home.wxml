@@ -1,4 +1,29 @@
 <!--pages/home/home.wxml-->
-<text class="title">Hello World</text>
-<button size="mini">按钮</button>
-<image src=""></image>
+<!-- 事件处理的回顾 -->
+<button bindtap="headleBtnClick" size="mini">按钮</button>
+<button bind:tap="headleBtnClick" size="mini">按钮</button>
+<button catch:tap="headleBtnClick" size="mini">按钮</button>
+
+<!-- 2.常见的事件 -->
+<view class="box" 
+      bind:touchstart="handleTouchStart" 
+      bind:touchmove="handleTouchMove"
+      bind:touchend="handleTouchEnd"
+      bind:tap="handleTap"
+      bind:longpress="handleLongpress"></view>
+
+<!-- 事件对象的分析 -->
+<button id="btn" bind:tap="handleEventClick"
+                  bind:touchend="handleEventEnd"
+ size="mini">事件对象</button>
+
+<view class="outer" id="outer" bindtap="handleOuter">
+  <view class="inner" id="inner" bind:tap="handleInner"></view>
+ </view>
+
+ <!-- 事件的传递参数 -->
+<view class="container">
+  <block wx:for="{{titles}}" wx:key="{{index}}">
+    <view class="item" bindtap="handleItemClick" data-index="{{index}}" data-item="{{item}}">{{item}}</view>
+  </block>
+</view>
