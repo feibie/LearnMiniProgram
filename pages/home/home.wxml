@@ -1,4 +1,18 @@
 <!--pages/home/home.wxml-->
 <text class="title">Hello World</text>
 <button size="mini">按钮</button>
-<image src=""></image>
+
+<!-- 1.Toast -->
+<button size="mini" bind:tap="handleShowToast">ShowToast</button>
+
+<!-- Modal -->
+<button size="mini" bind:tap="handleShowModal">ShowModal</button>
+
+<!-- showLoading -->
+<button size="mini" bind:tap="handleShowLoading">ShowLoading</button> 
+
+<!-- showActionSheet -->
+<button size="mini" bind:tap="handleShowAction">ShowAction</button> 
+
+<button size="mini" open-type="share">分享</button>
+
